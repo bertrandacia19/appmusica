@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Hello World!</title>
+    <title>Dantha Player Music</title>
     <link rel="stylesheet" href="./main.css" type="text/css">
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     
@@ -11,7 +11,7 @@
   <body>
 
       <div class="wrapper">
-
+    <input type="checkbox" id="check">
     <input type="checkbox" id="check">
     <label for="check">
       <i class="fas fa-bars" id="btn"></i>
@@ -20,9 +20,9 @@
 
     
       <div class="sidebar">
-        <header>¡Dale Play!</header>
+        <header><img src="PicsArt_03-14-06.37.56.jpg" alt="img"></header>
         <ul>
-
+        
         <li><a href="#"><i class="fas fa-music"></i>Musica</a></li>
         <li><a href="#"><i class="fas fa-compact-disc"></i>Album</a></li>
         <li><a href="#"><i class="fas fa-user"></i>Cantante</a></li>
@@ -36,14 +36,34 @@
     </div>
      
     
-    
-    
 
-   
  
-    
-    <!-- You can also require other files to run in this process -->
-    <script src="./renderer.js"></script>
-  </body>
+    <footer>
+      <label for="check1">
+         <i class="fas fa-times" id="close"></i>
+      </label>
+      
+      <menu>
+
+        <form class="cuadro" >
+          <div class="caja"></div>
+      </form>
+        <li><a href="#"><i class="fas fa-volume-up"></i></a></li>
+        <li><a href="#"><i class="fas fa-volume-mute"></i></a></li>
+        <li><a href="#"><i class="fas fa-angle-double-left"></i></a></li>
+        <li><a href="#"><i class="fas fa-angle-left"></i></a></li>
+        <li><a href="#"><i class="fas fa-play"></i></a></li>
+        <li><a href="#"><i class="fas fa-angle-right"></i></a></li>
+        <li><a href="#"><i class="fas fa-angle-double-right"></i></a></li>
+        <li><a href="#"><i class="fas fa-stop"></i></a></li>
+        
+        
+    </menu>
   
+    </footer>
+      
+    
+  </body>
+  <!-- You can also require other files to run in this process -->
+  <script src="./renderer.js"></script>
 </html>

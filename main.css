@@ -1,9 +1,16 @@
 body, html{
     margin: 0vh;
    /* height: 0vh;
-    padding: 0vh;*/
+    padding: 0vh;*/  
     
-    
+}
+
+img{
+    padding: 20px;
+    width: 50px;
+    height:50px;
+    align-items: center;
+    bottom: 20px;
 }
 
 .wrapper {
@@ -14,6 +21,7 @@ body, html{
     background-size: 600% 100%;
     animation: gradient 16s linear infinite;
     animation-direction: alternate;
+
 }
 @keyframes gradient {
     0% {background-position: 0%}
@@ -35,7 +43,7 @@ body, html{
    height: 100%;
    background: #042331;
    transition: all .5s ease;
-
+   z-index: 999;
 }
 
 .sidebar header{
@@ -45,6 +53,7 @@ body, html{
     line-height: 70px;
     background: #063146;
     user-select: none;
+    align-items: center;
 }
 
 .sidebar ul a{
@@ -123,3 +132,89 @@ section{
     transition: all .5s;
 }
 
+
+menu {
+      padding: 0;
+      margin: 0;
+      height: 60px;
+      background-color: #042331;
+      box-shadow: 0 1px 5px #000;
+      display: flex;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin-top: 0;
+      margin: 5px;
+      justify-content: space-around;
+      align-items: center;
+  }
+  menu a {
+      text-decoration: none;
+      color: rgb(205, 4, 255) !important;
+      
+  }
+
+  footer{
+    height: 10px;
+    display: flex;
+    margin: 0px;
+    justify-content: center;
+    font-size: 5px;
+      z-index: 99;
+      position: fixed;
+      left: -250px;
+      width: 250px;
+      height: 25px;
+      background: #042331;
+      transition: all 1.5s ease;
+
+      
+   
+    
+  }
+
+  menu:hover{
+    padding-bottom: 5px; 
+    
+  }
+
+
+
+  menu li i{
+    width: 0.5 px;
+    left: 5px;
+    top: 5px;
+    font-size: 35px;
+    color: rgb(122, 0, 153);
+    border-radius: 3px;
+    padding: 0;
+    transition: all .5s;
+    margin: 1px;
+  }
+ 
+ 
+  .caja{
+      color: #0a5275;
+    width:0;
+     height:0;
+     border-right: 25px solid;
+     border-top: 25px solid;
+     border-left: 25px solid;
+     border-bottom: 25px solid;
+     border-radius: 100%;
+    transition: all 1s;
+}
+
+
+.caja:hover{
+    transform: rotate(1080deg) scale(1.5);
+}
+
+.cuadro{
+     width: 50px; 
+     height: 50px; 
+     border: 3px solid #555;
+     background: #428bca;
+   
+}
