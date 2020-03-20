@@ -6,7 +6,7 @@ body, html{
 }
 
 img{
-    padding: 20px;
+    padding: 30px;
     width: 50px;
     height:50px;
     align-items: center;
@@ -38,16 +38,14 @@ img{
 
 .sidebar{
    position: fixed;
-   left: -250px;
-   width: 250px;
+   width: 18%;
    height: 100%;
    background: #042331;
-   transition: all .5s ease;
-   z-index: 999;
+   
 }
 
 .sidebar header{
-    font-size: 22px;
+    font-size: 100spx;
     color: white;
     text-align: center;
     line-height: 70px;
@@ -56,10 +54,16 @@ img{
     align-items: center;
 }
 
+a{
+    text-align: left;
+    text-size-adjust: 50% ;
+}
+
 .sidebar ul a{
     display: block;
     height: 100%;
     width: 100%;
+    align-items: center;
     line-height: 65px;
     font-size: 20px;
     color: white;
@@ -72,10 +76,13 @@ img{
 
 ul li:hover a{
     padding-left: 60px;
+    bottom: 4000px;
 }
 
 .sidebar ul a i{
     margin-right: 16px;
+    width: 40px;
+    height: 60px;
 }
 
 #check{
@@ -83,31 +90,6 @@ ul li:hover a{
 
 }
 
-label #btn, label #cancel{
-    position: absolute;
-    cursor: pointer;
-    background: #042331;
-}
-
-label #btn{
-    left: 40px;
-    top: 25px;
-    font-size: 35px;
-    color: white;
-    border-radius: 3px;
-    padding: 6px 12px;
-    transition: all .5s;
-}
-
-label #cancel{
-    z-index: 1111;
-    left: -195px;
-    top: 17px;
-    font-size: 30px;
-    color: #0a5275;
-    padding: 4px 9px;
-    transition: all .5s ease;
-}
 
 #check:checked ~ .sidebar{
     left: 0;
@@ -136,18 +118,20 @@ section{
 menu {
       padding: 0;
       margin: 0;
+      width: 100%;
       height: 60px;
       background-color: #042331;
       box-shadow: 0 1px 5px #000;
       display: flex;
       position: fixed;
       bottom: 0;
-      left: 0;
+      left: 0%;
       right: 0;
       margin-top: 0;
-      margin: 5px;
+      margin: 0px;
       justify-content: space-around;
       align-items: center;
+    
   }
   menu a {
       text-decoration: none;
@@ -161,7 +145,6 @@ menu {
     margin: 0px;
     justify-content: center;
     font-size: 5px;
-      z-index: 99;
       position: fixed;
       left: -250px;
       width: 250px;
@@ -183,10 +166,10 @@ menu {
 
   menu li i{
     width: 0.5 px;
-    left: 5px;
-    top: 5px;
+    left: 0px;
+    top: 0px;
     font-size: 35px;
-    color: rgb(122, 0, 153);
+    color: rgb(249, 248, 250);
     border-radius: 3px;
     padding: 0;
     transition: all .5s;
