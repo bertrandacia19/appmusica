@@ -20,20 +20,37 @@
         <header><img src="PicsArt_03-14-06.37.56.jpg" alt="img"></header>
         <ul>
         
-        <li><a href="#"><i class="fas fa-music"></i>Musica</a></li>
-        <li><a href="#"><i class="fas fa-compact-disc"></i>Album</a></li>
-        <li><a href="#"><i class="fas fa-user"></i>Cantante</a></li>
-        <li><a href="#"><i class="fas fa-fire"></i>Genero</a></li>
-        <li><a href="#"><i class="fas fa-folder-plus"></i>Crear Playlist</a></li>
+        <li><a class="item-menu" href="#" data-elemento="musica"><i class="fas fa-music"></i>Musica</a></li>
+        <li><a class="item-menu" href="#" data-elemento="album"><i class="fas fa-compact-disc"></i>Album</a></li>
+        <li><a class="item-menu" href="#" data-elemento="cantante"><i class="fas fa-user"></i>Cantante</a></li>
+        <li><a class="item-menu" href="#" data-elemento="genero"><i class="fas fa-fire"></i>Genero</a></li>
+        <li><a class="item-menu" href="#" data-elemento="playlist"><i class="fas fa-folder-plus"></i>Crear Playlist</a></li>
         
         
         </ul>
       </div>
       <section></section>
+      <div id="contenedor">
+        <div id="musica" class="pagina">
+            <h1>El inicio de la aplicación</h1>
+            
+        </div>
+        <div id="album" class="pagina esconder">
+            <h1>Las canciones que el usuario tiene guardado en su computadora</h1>
+        </div>
+        <div id="cantante" class="pagina esconder">
+            <h1>Configuración de la aplicación</h1>
+            
+        </div>
+        <div id="genero" class="pagina esconder">
+          <h1>Configuración de la aplicación</h1>
+      </div>
+      <div id="playlist" class="pagina esconder">
+        <h1>Configuración de la aplicación</h1>
+        
+      </div>
     </div>
-     
-    
-
+    </div>
  
     <footer>
       <label for="check1">
@@ -63,4 +80,24 @@
   </body>
   <!-- You can also require other files to run in this process -->
   <script src="./renderer.js"></script>
+  <script>
+    const enlaces = document.getElementsByClassName('item-menu');
+    for (let i = 0; i < enlaces.length; i++) {
+        enlaces[i].addEventListener('click', function(e) {
+            e.preventDefault();
+            const idElemento = e.currentTarget.getAttribute('data-elemento');
+            console.log(idElemento);
+            const paginas = document.getElementsByClassName('pagina');
+            for (let j = 0; j < paginas.length; j++) {
+                paginas[j].classList.add('esconder')
+            }
+            document.getElementById(idElemento).classList.remove('esconder');
+            
+        })
+        
+    }
+   
+    
+    
+</script>
 </html>
