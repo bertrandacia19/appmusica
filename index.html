@@ -11,16 +11,22 @@
   <body>
 
       <div class="wrapper">
-
-    <input type="checkbox" id="check">
-    <label for="check">
+        <div class="cancion">
+          <p>
+            <img src="" alt="" id="picture">
+            <h1 id="title"></h1>
+            <h2 id="artist"></h2>
+            <h2 id="genero"></h2>
+            <h3 id="album"></h3>
+          </p>
+        </div>
+      <input type="checkbox" id="check">
+      <label for="check">
       <i class="fas fa-bars" id="btn"></i>
       <i class="fas fa-times" id="cancel"></i>
-    </label>
-
+      </label>
     
       <div class="sidebar">
-        <di class="toggle-btn" onclick="toggleSidebar()"></di>
         <header>¡Dale Play!</header>
         <ul>
 
@@ -33,42 +39,10 @@
         
         </ul>
       </div>
-      <section>
-        <div class="caja">
-          <form id="box">
-            <img src="badbunny.jpg">
-            <img src="X 100PRE.jpg">
-
-          </form>
-
-        </div>
-
-
-      </section>
-
-      <div id="Musica" class="pagina esconder">
-        <h1>Las canciones que el usuario tiene guardado en su computadora</h1>
-    </div>
-
-
-
-
-
-
-
-
-
 
 
     </div>
-     
-    
-    
-    
 
-   
- 
-    
     <!-- You can also require other files to run in this process -->
     <script src="./renderer.js"></script>
   </body>
