@@ -1,26 +1,54 @@
+const Fs = require('fs')
+const util = require('util');
+var mp3Duration = require('mp3-duration');
+var jsmediatags = require("jsmediatags");
+const resultados = document.getElementById('resultados')
 
- /*const enlaces = document.getElementsByTagName('Musica')
- /*const enlaces = document.getElementsByClassName('Album')
- const enlaces = document.getElementsByClassName('Cantante')
- const enlaces = document.getElementsByClassName('Genero')
- const enlaces = document.getElementsByClassName('Crear Playlist')
- const enlaces = document.getElementsByClassName('Descargar')*/
- /*for (let i = 0; i < enlaces.length; i++) {
-    enlaces[i].addEventListener('click', function(e) {
-        e.preventDefault();
-        const idclass = e.currentTarget.getAttribute('class');
-        console.log(idElemento);
-        const menu = document.getElementsByClassName('sidebar');
-        for (let j = 0; j < paginas.length; j++) {
-            paginas[j].classList.add('esconder')
+mp3Duration('./musica/JekK_-_You_and_Me.mp3', function (err, duration) {
+  const tiempo = time_convert(duration/60)
+  console.log('Your file is ' + duration + ' seconds long');
+  let html = '<form>';
+  html += `<h3>${tiempo}</h3>`;
+  html += `<h3>${createdDate('./musica/JekK_-_You_and_Me.mp3')}</h3>`
+  html +="</form>"
+  resultados.innerHTML = html;
+});
+
+function createdDate (file) {  
+  const { birthtime } = Fs.statSync(file)
+  return birthtime
+}
+
+function time_convert(num)
+ { 
+  var seconds = Math.floor(num / 60);  
+  var minutes = num % 60;
+  return minutes + ":" + seconds;         
+}
+
+jsmediatags.read("./musica/JekK_-_You_and_Me.mp3", {
+  onSuccess: function(tag) {
+    console.log(tag);
+    var image = tag.tags.picture;
+    document.getElementById('title').innerHTML = tag.tags.title;
+    document.getElementById('artist').innerHTML= tag.tags.artist;
+    document.getElementById('album').innerHTML = tag.tags.album;
+    document.getElementById('picture').title = tag.tags.title;
+    document.getElementById('genere').innerHTML = tag.tags.genre; 
+      if (image) {
+        var base64String = "";
+        for (var i = 0; i < image.data.length; i++) {
+            base64String += String.fromCharCode(image.data[i]);
         }
-        document.getElementById(idElemento).classList.remove('esconder');
-    })
-    
-}*/
-
-
-
-
-
- 
+        var base64 = "data:" + image.format + ";base64," +
+                window.btoa(base64String);
+        document.getElementById('picture').setAttribute('src',base64);
+      } else {
+        document.getElementById('picture').style.display = "none";
+        document.getElementById('picture').title = "none";
+      }
+  },
+  onError: function(error) {
+    console.log(':(', error.type, error.info);
+  }
+});
