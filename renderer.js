@@ -6,12 +6,7 @@ const resultados = document.getElementById('resultados')
 
 mp3Duration('./musica/JekK_-_You_and_Me.mp3', function (err, duration) {
   const tiempo = time_convert(duration/60)
-  console.log('Your file is ' + duration + ' seconds long');
-  let html = '<form>';
-  html += `<h3>${tiempo}</h3>`;
-  html += `<h3>${createdDate('./musica/JekK_-_You_and_Me.mp3')}</h3>`
-  html +="</form>"
-  resultados.innerHTML = html;
+  document.getElementById('tiempo').innerHTML = time_convert(duration);
 });
 
 function createdDate (file) {  
@@ -21,9 +16,15 @@ function createdDate (file) {
 
 function time_convert(num)
  { 
-  var seconds = Math.floor(num / 60);  
-  var minutes = num % 60;
-  return minutes + ":" + seconds;         
+  var minutes = Math.floor(num / 60);
+  var residual = Math.floor(num % 60);
+  if(residual < 10){
+    seconds = "0"+residual+""
+    return minutes + ":" + seconds;
+  }else{
+    return minutes + ":" + residual;
+  }
+           
 }
 
 jsmediatags.read("./musica/JekK_-_You_and_Me.mp3", {
@@ -52,3 +53,30 @@ jsmediatags.read("./musica/JekK_-_You_and_Me.mp3", {
     console.log(':(', error.type, error.info);
   }
 });
+
+document.addEventListener("DOMContentLoaded", function() { startplayer(); }, false);
+var player;
+
+function startplayer() 
+{
+ player = document.getElementById('music_player');
+ player.controls = false;
+}
+
+function play_aud() 
+{
+ player.play();
+} 
+function pause_aud() 
+{
+ player.pause();
+}
+function stop_aud() 
+{
+ player.pause();
+ player.currentTime = 0;
+}
+function change_vol()
+{
+ player.volume=document.getElementById("change_vol").value;
+}
