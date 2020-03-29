@@ -45,9 +45,7 @@
       </div>
       <section></section>
       <div id="contenedor">
-        <div id="musica" class="pagina">
-            <h1>El inicio de la aplicación</h1>
-            
+        <div id="musica" class="pagina">    
         </div>
         <div id="album" class="pagina esconder">
             <h1>Las canciones que el usuario tiene guardado en su computadora</h1>
@@ -72,28 +70,23 @@
       <label for="check">
         <i class="fas fa-times" id="close"></i>
       </label>
-  
-      
+      <audio id = "music_player">
+        <source src="./musica/JekK_-_You_and_Me.mp3">
+      </audio>
       <menu>
-
         <div class="cuadro" >
           <div class="caja"></div>
         </div>
-        <li><a href="#"><i class="fas fa-volume-up"></i></a></li>
+        <li><a href="#"><i class="fas fa-volume-up" onchange="change_vol()" step="0.05" min="0" max="1" value="1"></i></a></li>
         <li><a href="#"><i class="fas fa-volume-mute"></i></a></li>
         <li><a href="#"><i class="fas fa-angle-double-left"></i></a></li>
         <li><a href="#"><i class="fas fa-angle-left"></i></a></li>
-        <li><a href="#"><i class="fas fa-play"></i></a></li>
+        <li><a href="#"><i class="fas fa-play" onclick="play_aud()" id="play_button"></i></a></li>
         <li><a href="#"><i class="fas fa-angle-right"></i></a></li>
         <li><a href="#"><i class="fas fa-angle-double-right"></i></a></li>
-        <li><a href="#"><i class="fas fa-stop"></i></a></li>
-        
-        
+        <li><a href="#"><i class="fas fa-stop" onclick="stop_aud()" id="play_button"></i></a></li> 
     </menu>
-  
     </footer>
-      
-    
   </body>
   <!-- You can also require other files to run in this process -->
   <script src="./renderer.js"></script>
