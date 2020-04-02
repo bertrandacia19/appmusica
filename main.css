@@ -142,10 +142,6 @@ menu {
       
   }
 
-  menu:hover{
-    padding-bottom: 5px; 
-    
-  }
 
   menu li i{
     width: 0.5 px;
@@ -157,7 +153,7 @@ menu {
     padding: 0;
     transition: all .5s;
     margin: 1px;
+    
   }
- 
- 
+
   

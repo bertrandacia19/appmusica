@@ -1,11 +1,18 @@
 const Fs = require('fs')
 const util = require('util');
+const path = require('path');
 var mp3Duration = require('mp3-duration');
 var jsmediatags = require("jsmediatags");
-const resultados = document.getElementById('resultados')
+const directoryPath = '/Users/Usuario/Music';
+const titulo = document.getElementById('title');
+const artista = document.getElementById('artist');
+const album = document.getElementById('album');
+const imagen = document.getElementById('picture');
+const genero = document.getElementById('genere');
+const cancion = document.getElementsByClassName('cancion');
+
 
 mp3Duration('./musica/JekK_-_You_and_Me.mp3', function (err, duration) {
-  const tiempo = time_convert(duration/60)
   document.getElementById('tiempo').innerHTML = time_convert(duration);
 });
 
@@ -54,9 +61,6 @@ jsmediatags.read("./musica/JekK_-_You_and_Me.mp3", {
   }
 });
 
-document.addEventListener("DOMContentLoaded", function() { startplayer(); }, false);
-var player;
-
 function startplayer() 
 {
  player = document.getElementById('music_player');
@@ -80,3 +84,37 @@ function change_vol()
 {
  player.volume=document.getElementById("change_vol").value;
 }
+
+Fs.readdir(directoryPath, function (err, files) {
+  if (err) {
+    return console.log('Unable to scan directory: ' + err);
+  } 
+  let html = '<p>';
+  files.forEach(function (file) {
+    jsmediatags.read(file, {
+      onSuccess: function(tag) {
+        console.log(tag);
+        var image = tag.tags.picture;
+        html += `<h1>${file.tag.tags.titulo}</h1>`;
+        html += `<h2>${file.tag.tags.artist}</h2>`;
+          if (image) {
+            var base64String = "";
+            for (var i = 0; i < image.data.length; i++) {
+                base64String += String.fromCharCode(image.data[i]);
+            }
+            var base64 = "data:" + image.format + ";base64," +
+                    window.btoa(base64String);
+            document.getElementById('picture').setAttribute('src',base64);
+          } else {
+            document.getElementById('picture').style.display = "none";
+            document.getElementById('picture').title = "none";
+          }
+      },
+      onError: function(error) {
+        console.log(':(', error.type, error.info);
+      }
+    });
+  });
+  html +="</p>"
+  cancion.innerHTML = html;
+});
